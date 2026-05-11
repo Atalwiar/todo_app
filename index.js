@@ -2,8 +2,13 @@ import express from 'express';
 import path from "path";
 import mongodb from "mongodb";
 import { MongoClient, ObjectId } from 'mongodb';
+const dbname  = "node_project";
+const cname = "todo";
+const url = "mongodb://localhost:27017";
+const client = new MongoClient(url);
 const app = express();
 const mypublic = path.resolve('public');
+
 app.use(express.json());
 app.use(express.static(mypublic));
 app.use(express.urlencoded({extended: true}));

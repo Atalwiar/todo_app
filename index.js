@@ -14,6 +14,11 @@ app.use(express.static(mypublic));
 app.use(express.urlencoded({extended: true}));
 app.set("view engine","ejs");
 
+const connected = async () =>{
+  await client.connect();
+  return client.db(dbname).collection(cname);
+}
+
 app.get('/',(req,res)=>{
   res.render("lists");
 })

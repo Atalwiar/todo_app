@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f2f7f5, #e5eef5);
+}
+
+nav {
+  background-color: #3d5555;
+  padding: 15px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #e8dfeb;
+}
+
+nav ul li a:hover {
+  color: #fff7ea;
+}
+
+.edit-parent {
+  width: min(92%, 560px);
+  margin: 60px auto;
+  padding: 28px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 12px 30px rgba(45, 68, 68, 0.15);
+}
+
+.edit-parent h1 {
+  margin: 0 0 18px;
+  color: #2a3f3f;
+  text-align: center;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edit-form input,
+.edit-form textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #b3c0c0;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+.edit-form input:focus,
+.edit-form textarea:focus {
+  border-color: #3d5555;
+  box-shadow: 0 0 0 3px rgba(61, 85, 85, 0.18);
+}
+
+.edit-form textarea {
+  resize: vertical;
+}
+
+.edit-form button {
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3d5555;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.edit-form button:hover {
+  background-color: #2f4343;
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    font-size: 16px;
+    gap: 12px;
+  }
+
+  .edit-parent {
+    margin: 32px auto;
+    padding: 18px;
+  }
+}

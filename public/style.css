@@ -109,7 +109,7 @@ nav ul li a:hover{
   background-color: rgb(255, 255, 255);
   padding: 20px;
  
-}#delete{
+}#delete, #update{
   background-color: rgb(57, 170, 57);
   color: white;
   width: 100px;
@@ -119,8 +119,12 @@ nav ul li a:hover{
   border-radius: 5px;
    cursor: pointer;
 }
-#delete > a{
+#delete > a,  #update > a{
   text-decoration: none;
   color: white;
   font-size: large;
+}#btns{
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }

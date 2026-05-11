@@ -35,7 +35,7 @@ app.get('/add',(req,res)=>{
 })
 
 app.get('/update',(req,res)=>{
-  res.render("update");
+  res.render("update", { data: null });
 })
 
 app.post('/add_task',(req,res)=>{
@@ -75,6 +75,39 @@ app.get("/delete/:id", async (req, res) => {
     return res.status(500).send({ message: "server error" });
   }
 });
+
+app.get('/update/:id',async (req,res)=>{
+   try {
+    const id = req.params.id.trim();
+
+    if (!ObjectId.isValid(id)) {
+      return res.status(400).send({ message: "invalid id format", id });
+    }
+
+    const collection = await connected();
+    const result = await collection.findOne({ _id: new ObjectId(id) });
+
+    if (result) {
+      return res.render("update", { data: result });
+    } else {
+      return res.status(404).send({ message: "not found" });
+    }
+  } catch (err) {
+    console.error("Delete error:", err); // important for real cause
+    return res.status(500).send({ message: "server error" });
+  }
+})
+
+app.post("/update_task/:id",async (req,res)=>{
+  const id = req.params.id.trim();
+  const collection = await connected();
+  const result = await collection.updateOne({ _id: new ObjectId(id) }, { $set: req.body });
+  if (result.modifiedCount === 1) {
+    return res.redirect("/");
+  } else {
+    return res.status(404).send({ message: "not found" });
+  }
+})
 
 app.listen(8080,()=>{
   console.log("server is running in 8080");

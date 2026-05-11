@@ -3,11 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-   <link rel="stylesheet" href="style.css">
+  <title>Update Task</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <%- include('navbar') %>
-  <h1>update page</h1>
+  <div class="edit-parent">
+    <h1>Update Task</h1>
+    <% if (data) { %>
+      <form action="/update_task/<%= data._id.toString() %>" method="post" class="edit-form">
+        <input type="text" name="task" placeholder="Enter updated task title" required value="<%= data.task %>">
+        <textarea name="message" rows="6" placeholder="Enter updated message"><%= data.message %></textarea>
+        <button type="submit">Update</button>
+      </form>
+    <% } else { %>
+      <p>Select a task from the list page to update it.</p>
+    <% } %>
+  </div>
 </body>
 </html>

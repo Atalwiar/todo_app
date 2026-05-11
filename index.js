@@ -32,7 +32,18 @@ app.get('/update',(req,res)=>{
 })
 
 app.post('/add_task',(req,res)=>{
-  res.redirect("/");
+
+let result =  connected().then((collection)=>{
+    collection.insertOne(req.body);
+  })
+
+  if(result){
+    res.redirect("/");
+  }else{
+     res.redirect("/add");
+  }
+
+ 
 
 })
 

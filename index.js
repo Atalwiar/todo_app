@@ -19,8 +19,14 @@ const connected = async () =>{
   return client.db(dbname).collection(cname);
 }
 
-app.get('/',(req,res)=>{
-  res.render("lists");
+app.get('/', async (req,res)=>{
+  let result = await connected().then((collection)=>{
+   return collection.find({}).toArray();
+  });
+
+  
+  
+  res.render("lists",{data: result});
 })
 
 app.get('/add',(req,res)=>{

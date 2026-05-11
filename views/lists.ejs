@@ -8,6 +8,10 @@
 </head>
 <body>
   <%- include('navbar') %>
+  <% data.forEach(element => { %>
+  <h1><%= element.task %></h1>
+  <p><%= element.message %></p>
+<% }) %>
   <h1>lists page</h1>
 </body>
 </html>

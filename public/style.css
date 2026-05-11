@@ -1,0 +1,71 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  
+}
+nav{
+  background-color: rgb(61, 85, 85);
+  padding: 15px;
+ 
+}
+nav ul{
+  list-style-type:none;
+  display: flex;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: bold
+}nav ul li a{
+  text-decoration: none;
+  color: rgb(212, 203, 212);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+}
+nav ul li a:hover{
+  color: rgb(190, 183, 172);
+}
+
+#parent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% - 75%);
+ margin: auto;
+ margin-top: 50px;
+ box-shadow: 3px 3px 3px 3px rgb(223, 219, 219);
+ background-color: rgb(255, 255, 255);
+ padding: 20px;
+ border-radius: 10px;
+} #form_todo{
+  display: flex;
+  flex-direction: column;
+ width: 90%;
+  gap: 10px;
+}
+#form_todo input#form_task{
+  padding: 15px;
+  
+  border-radius: 5px;
+  border: 1px solid gray;
+  outline: 0px;
+ 
+} #form_todo textarea#form_message{
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  outline: 0px;
+  resize: vertical;
+ 
+} #form_todo button#todo_button{
+  padding: 15px;
+  
+  border: 1px solid gray;
+  outline: 0px;
+  border-radius: 4px;
+  background-color: rgb(61, 85, 85);
+  color: white;
+  cursor: pointer;
+}
+

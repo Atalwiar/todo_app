@@ -7,11 +7,23 @@
    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <%- include('navbar') %>
+   <%- include('navbar') %>
+  <div id="list_parent">
+      <h1>Task List Page</h1>
+
+ 
+  <ul>
+ 
   <% data.forEach(element => { %>
-  <h1><%= element.task %></h1>
-  <p><%= element.message %></p>
+  <div id="child">
+    <li><%=element.task%></li>
+ <li ><%=element.message%></li>
+  <button id="update"><a href="/update?_id=<%=element._id%>">Update</a></button>
+  <button id="delete"><a href="/delete?_id=<%=element._id%>">Delete</a></button>
+  </div>
+ <br>
 <% }) %>
-  <h1>lists page</h1>
+</ul>
+ </div>
 </body>
 </html>

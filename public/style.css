@@ -69,3 +69,44 @@ nav ul li a:hover{
   cursor: pointer;
 }
 
+
+#list_parent{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% - 75%);
+ margin: auto;
+ margin-top: 50px;
+ 
+ background-color: rgb(255, 255, 255);
+ padding: 20px;
+ border-radius: 10px;
+}
+
+#list_parent ul{
+  list-style: none;
+  width: 100%;
+  padding: 15px;
+  
+}
+
+ li{
+  font-family: Arial, Helvetica, sans-serif;
+  
+  font-weight: bolder;
+  color: gray;
+}li:first-child{
+  font-size: x-large;
+}
+#child{
+  display: flex;
+  flex-direction: column;
+  
+  border-left: 10px solid green;
+  box-shadow: 2px 2px 2px 2px rgb(223, 219, 219);
+  border-radius: 2px;
+
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+ 
+}

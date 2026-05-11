@@ -2,6 +2,7 @@ import express from 'express';
 import path from "path";
 import mongodb from "mongodb";
 import { MongoClient, ObjectId } from 'mongodb';
+
 const dbname  = "node_project";
 const cname = "todo";
 const url = "mongodb://localhost:27017";
@@ -52,6 +53,28 @@ let result =  connected().then((collection)=>{
  
 
 })
+
+app.get("/delete/:id", async (req, res) => {
+  try {
+    const id = req.params.id.trim();
+
+    if (!ObjectId.isValid(id)) {
+      return res.status(400).send({ message: "invalid id format", id });
+    }
+
+    const collection = await connected();
+    const result = await collection.deleteOne({ _id: new ObjectId(id) });
+
+    if (result.deletedCount === 1) {
+      return res.redirect("/");
+    } else {
+      return res.status(404).send({ message: "not found" });
+    }
+  } catch (err) {
+    console.error("Delete error:", err); // important for real cause
+    return res.status(500).send({ message: "server error" });
+  }
+});
 
 app.listen(8080,()=>{
   console.log("server is running in 8080");

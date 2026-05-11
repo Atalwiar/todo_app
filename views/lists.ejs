@@ -18,8 +18,8 @@
   <div id="child">
     <li><%=element.task%></li>
  <li ><%=element.message%></li>
-  <button id="update"><a href="/update?_id=<%=element._id%>">Update</a></button>
-  <button id="delete"><a href="/delete?_id=<%=element._id%>">Delete</a></button>
+  
+  <button id="delete"><a href="/delete/<%= element._id.toString() %>">Delete</a></button>
   </div>
  <br>
 <% }) %>
